@@ -90,9 +90,9 @@ h1 span{background:linear-gradient(135deg,var(--blue1),var(--blue2));-webkit-bac
 .card b{font-size:clamp(18px,5vw,22px);display:block}
 .card small{color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.06em;word-break:break-word}
 .foot{text-align:center;margin-top:16px;color:var(--muted);font-size:clamp(9px,2.6vw,11px);letter-spacing:.24em;font-weight:600;line-height:2}
-#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,140%);background:#101828;color:#fff;padding:13px 22px;border-radius:100px;font-size:13.5px;font-weight:600;transition:transform .4s;z-index:99;max-width:min(92vw,480px);text-align:center}
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,16px);opacity:0;visibility:hidden;background:#101828;color:#fff;padding:13px 22px;border-radius:100px;font-size:13.5px;font-weight:600;transition:opacity .35s,transform .4s cubic-bezier(.22,1,.36,1),visibility .4s;z-index:99;max-width:min(92vw,480px);text-align:center;pointer-events:none}
 html[data-theme="dark"] #toast{background:#EAF0FF;color:#0B1226}
-#toast.show{transform:translate(-50%,0)}
+#toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
 
 /* Devices */
 @media(max-width:480px){
