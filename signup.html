@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lumina Atelier — Create your account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#131210;
+  --cream:#FAF7F1;
+  --cream2:#F3EEE3;
+  --line:#E8DFCE;
+  --gold:#B8935A;
+  --gold-deep:#8A6E3E;
+  --gold-soft:#F1E3C3;
+  --muted:#8A8478;
+  --muted2:#B4AD9E;
+  --dark:#0C0B09;
+  --radius:20px;
+  --shadow:0 30px 80px rgba(20,15,5,.25);
+}
+body{
+  font-family:'Inter',sans-serif;color:var(--ink);
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:28px;
+  background:#080705;
+  background-image:
+    radial-gradient(900px 500px at 15% 0%, #2A2216 0%, transparent 60%),
+    radial-gradient(800px 600px at 90% 20%, #1E2A3A 0%, transparent 60%),
+    radial-gradient(700px 500px at 50% 110%, #3A2A18 0%, transparent 60%);
+  position:relative;overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;opacity:.18;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.orb1{width:520px;height:520px;background:radial-gradient(circle,#C9A86A55,transparent 70%);top:-120px;left:-120px}
+.orb2{width:480px;height:480px;background:radial-gradient(circle,#4A6FA555,transparent 70%);bottom:-100px;right:-80px;animation-delay:-6s}
+@keyframes drift{to{transform:translate(40px,30px) scale(1.08)}}
+
+.shell{
+  position:relative;width:100%;max-width:1240px;display:grid;grid-template-columns:500px 1fr;
+  border-radius:32px;overflow:hidden;background:var(--cream);
+  box-shadow:var(--shadow), 0 0 0 1px rgba(255,255,255,.12) inset;
+  animation:rise .8s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes rise{from{opacity:0;transform:translateY(24px) scale(.99)}to{opacity:1;transform:none}}
+
+/* LEFT */
+.showcase{
+  position:relative;color:#F7F1E3;padding:40px 38px 32px;display:flex;flex-direction:column;justify-content:space-between;
+  min-height:860px;overflow:hidden;
+  background:#111 url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=900&auto=format&fit=crop') center/cover;
+}
+.showcase::before{content:'';position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(10,8,5,.55) 0%,rgba(10,8,5,.15) 35%,rgba(10,8,5,.72) 72%,rgba(8,6,4,.94) 100%),
+  linear-gradient(120deg,rgba(184,147,90,.25),transparent 55%);}
+.showcase::after{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(255,220,150,.18),transparent 70%);pointer-events:none}
+.showcase>*{position:relative;z-index:2}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.monogram{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  font-family:'Fraunces',serif;font-size:22px;color:#1A1409;
+  background:linear-gradient(135deg,#F7E6B8,#C9A86A 55%,#8A6E3E);
+  box-shadow:0 0 0 1px rgba(255,255,255,.4) inset, 0 8px 24px rgba(0,0,0,.4);}
+.logo-wrap b{font-size:17px;letter-spacing:.02em;font-weight:700}
+.logo-wrap small{display:block;font-size:11px;letter-spacing:.22em;color:#D8C69A;font-weight:500}
+.live{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.08em;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:8px 14px;border-radius:100px;backdrop-filter:blur(12px)}
+.dot{width:7px;height:7px;border-radius:50%;background:#5EEA8A;box-shadow:0 0 10px #5EEA8A;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.5}}
+.middle{margin-top:26px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#EAD9B0}
+.eyebrow::before{content:'';width:28px;height:1px;background:#C9A86A;display:inline-block}
+.showcase h1{font-family:'Fraunces',serif;font-weight:300;font-size:60px;line-height:.95;letter-spacing:-.03em;margin:16px 0 14px}
+.showcase h1 i{font-weight:400;color:#F3D9A4}
+.showcase h1 span{font-style:italic;font-weight:300;opacity:.9}
+.lead{color:#D9D0BC;line-height:1.65;font-size:15px;max-width:380px;font-weight:400}
+.perks{margin-top:22px;display:grid;gap:12px}
+.perk{display:flex;gap:12px;align-items:center;font-size:13.5px;color:#EDE3CC;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:11px 14px;border-radius:14px;backdrop-filter:blur(10px)}
+.tick{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#F3D9A4,#B8935A);color:#1A1409;display:grid;place-items:center;font-size:13px;font-weight:800;flex-shrink:0}
+.card{
+  margin-top:22px;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:20px;
+  backdrop-filter:blur(18px);box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+.stars{color:#F3D9A4;letter-spacing:3px;font-size:13px;margin-bottom:10px}
+.card p{font-family:'Fraunces',serif;font-size:18px;line-height:1.45;font-weight:300;font-style:italic}
+.who{display:flex;align-items:center;gap:12px;margin-top:14px}
+.who img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.4)}
+.who b{font-size:13.5px;display:block} .who span{font-size:12px;color:#CFC3A9}
+.avatars{display:flex;align-items:center;margin-left:auto}
+.avatars img{width:30px;height:30px;border-radius:50%;border:2px solid #222;margin-left:-8px;object-fit:cover}
+.bottom{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:#CFC3A9}
+.logos{display:flex;gap:14px;opacity:.7;font-weight:700;letter-spacing:.08em;font-size:11px}
+
+/* RIGHT */
+.panel{padding:34px 44px 30px;position:relative;background:
+  radial-gradient(600px 200px at 50% -50px, #FFFDF6 0%, transparent 70%),
+  var(--cream);}
+.progress{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.step{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--muted)}
+.step .n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;border:1px solid var(--line);background:#fff}
+.step.active{color:var(--ink)} .step.active .n{background:var(--ink);color:#fff;border-color:var(--ink)}
+.p-line{flex:1;height:1px;background:var(--line);position:relative;overflow:hidden}
+.p-line::after{content:'';position:absolute;left:0;top:0;height:100%;width:33%;background:var(--gold);border-radius:100px}
+.login{margin-left:auto;font-size:13px;color:var(--muted)} .login a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--gold)}
+.panel h2{font-family:'Fraunces',serif;font-size:38px;font-weight:400;letter-spacing:-.03em;line-height:1}
+.panel h2 em{font-style:italic;color:var(--gold-deep)}
+.sub{color:var(--muted);font-size:14px;margin:8px 0 18px}
+.plans{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:18px}
+.plan{border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:12px 12px;text-align:left;cursor:pointer;transition:.25s;position:relative}
+.plan b{font-size:13.5px;display:block} .plan span{font-size:11.5px;color:var(--muted)}
+.plan .price{font-size:12px;font-weight:700;margin-top:6px;display:block;color:var(--gold-deep)}
+.plan.sel{border-color:var(--ink);box-shadow:0 8px 24px rgba(0,0,0,.08);background:#FFFEFB}
+.plan.sel::after{content:'✓';position:absolute;top:-9px;right:-7px;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;display:grid;place-items:center}
+.plan.pop{border-color:var(--gold)}
+.flag{position:absolute;top:-10px;left:12px;background:linear-gradient(135deg,#1A1409,#4A3A1F);color:#F3D9A4;font-size:10px;letter-spacing:.08em;padding:3px 9px;border-radius:100px;font-weight:700}
+.social{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.sbtn{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px;font-weight:600;font-size:13.5px;cursor:pointer;transition:.2s}
+.sbtn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.08);border-color:#CFC3A9}
+.div{display:flex;align-items:center;gap:12px;color:var(--muted2);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin:16px 0 14px}
+.div::before,.div::after{content:'';height:1px;background:var(--line);flex:1}
+form{display:grid;gap:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{margin-bottom:12px}
+.field label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6B6457;display:flex;justify-content:space-between;margin-bottom:7px}
+.field label em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:500;color:var(--muted2)}
+.in{position:relative}
+.in input,.in select{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:13px 14px 13px 42px;font-size:14px;outline:none;transition:.22s;font-family:inherit;color:var(--ink)}
+.in input::placeholder{color:#BEB6A5}
+.in input:focus,.in select:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(184,147,90,.15);background:#FFFEFB}
+.in svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:18px;height:18px;opacity:.55}
+.eye{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:var(--cream2);border:1px solid var(--line);border-radius:9px;padding:5px 9px;font-size:11px;font-weight:700;cursor:pointer;color:#6B6457}
+.check-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chk{font-size:11px;padding:5px 10px;border-radius:100px;background:#fff;border:1px solid var(--line);color:var(--muted)}
+.chk.ok{background:#131210;color:#F3D9A4;border-color:#131210}
+.strength{display:flex;gap:6px;margin-top:9px}
+.bar{height:4px;flex:1;border-radius:100px;background:#E8DFCE;transition:.3s}
+.terms{display:flex;gap:11px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 14px;margin:4px 0 12px;cursor:pointer}
+.terms input{display:none}
+.box{width:20px;height:20px;border-radius:7px;border:1.5px solid #CFC3A9;display:grid;place-items:center;flex-shrink:0;transition:.2s;background:#fff;font-size:13px;color:transparent}
+.terms.on .box{background:var(--ink);border-color:var(--ink);color:#F3D9A4}
+.terms p{font-size:12.5px;line-height:1.55;color:#6B6457} .terms a{color:var(--ink);font-weight:700}
+.cta{position:relative;overflow:hidden;border:0;border-radius:16px;padding:16px;font-size:15px;font-weight:700;cursor:pointer;color:#FFF8E6;
+  background:linear-gradient(135deg,#1D1811,#3D2F18 55%,#1D1811);box-shadow:0 14px 30px rgba(30,22,10,.35);transition:.25s;display:flex;align-items:center;justify-content:center;gap:10px}
+.cta::after{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(243,217,164,.45),transparent);transform:skewX(-20deg);animation:shine 3.2s infinite}
+@keyframes shine{0%{left:-60%}60%,100%{left:130%}}
+.cta:hover{transform:translateY(-1px)}
+.cta small{font-weight:400;opacity:.7}
+.foot{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:11.5px;color:var(--muted)}
+.err{font-size:11.5px;color:#B42318;margin-top:6px;display:none;font-weight:600}
+.field.bad input{border-color:#E6A19A;background:#FFF7F6} .field.bad .err{display:block}
+.success{position:absolute;inset:0;background:rgba(250,247,241,.96);backdrop-filter:blur(10px);display:none;place-items:center;text-align:center;padding:40px;z-index:5;border-radius:0 32px 32px 0}
+.success.show{display:grid;animation:rise .5s}
+.s-circle{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#F3D9A4,#B8935A);display:grid;place-items:center;font-size:36px;margin:0 auto 16px;box-shadow:0 16px 40px rgba(184,147,90,.4)}
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,120px);background:#131210;color:#F7F1E3;padding:14px 22px;border-radius:100px;font-size:13.5px;font-weight:600;transition:.45s cubic-bezier(.2,.8,.2,1);box-shadow:0 20px 50px rgba(0,0,0,.5);border:1px solid rgba(243,217,164,.3);z-index:99}
+.toast.show{transform:translate(-50%,0)}
+@media(max-width:1020px){.shell{grid-template-columns:1fr}.showcase{min-height:auto;padding:30px}.showcase h1{font-size:42px}.panel{padding:26px 20px}.plans{grid-template-columns:1fr 1fr 1fr}.success{border-radius:0 0 32px 32px}}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}.plans{grid-template-columns:1fr}.social{grid-template-columns:1fr 1fr}.panel h2{font-size:30px}}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div><div class="orb orb2"></div>
+
+<div class="shell">
+  <!-- LEFT SHOWCASE -->
+  <aside class="showcase">
+    <div class="nav">
+      <div class="logo-wrap"><div class="monogram">L</div><div><b>Lumina</b><small>ATELIER</small></div></div>
+      <div class="live"><span class="dot"></span> 2,431 online now</div>
+    </div>
+
+    <div class="middle">
+      <div class="eyebrow">Private Membership · Est. 2026</div>
+      <h1>Crafted for those who <i>create</i> <span>beautiful things.</span></h1>
+      <p class="lead">Join the atelier trusted by 48,000+ designers, founders and studios. Start free, invite your team, cancel anytime.</p>
+      <div class="perks">
+        <div class="perk"><span class="tick">✓</span> 14-day Atelier Pro trial — no credit card required</div>
+        <div class="perk"><span class="tick">✓</span> 120+ premium templates & brand kits included</div>
+        <div class="perk"><span class="tick">✓</span> SOC2 · GDPR · 256-bit encryption by default</div>
+      </div>
+
+      <div class="card">
+        <div class="stars">★★★★★ <span style="color:#fff;letter-spacing:0">5.0 · 12,400 reviews</span></div>
+        <p>“The signup took 40 seconds. The experience felt like unwrapping a gift — we converted our whole studio the same day.”</p>
+        <div class="who">
+          <img src="https://i.pravatar.cc/100?img=47" alt="" />
+          <div><b>Amara Osei</b><span>Creative Director, Maison Noir</span></div>
+          <div class="avatars"><img src="https://i.pravatar.cc/100?img=12"/><img src="https://i.pravatar.cc/100?img=32"/><img src="https://i.pravatar.cc/100?img=56"/><img src="https://i.pravatar.cc/100?img=5"/></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom"><span>TRUSTED BY TEAMS AT</span><div class="logos"><span>VELVET</span><span>NOIR®</span><span>AtelierK</span><span>MONO.</span></div></div>
+  </aside>
+
+  <!-- RIGHT FORM -->
+  <main class="panel">
+    <div class="progress">
+      <div class="step active"><span class="n">1</span> Account</div><div class="p-line"></div>
+      <div class="step"><span class="n">2</span> Profile</div><div class="p-line"></div>
+      <div class="step"><span class="n">3</span> Done</div>
+      <div class="login">Have an account? <a href="welcome.html">Log in</a></div>
+    </div>
+
+    <h2>Begin your <em>membership</em></h2>
+    <p class="sub">Create your login in under a minute. Free Pro trial for every new atelier.</p>
+
+    <div class="plans" id="plans">
+      <button type="button" class="plan" data-p="Personal"><b>Personal</b><span>For explorers</span><span class="price">Free forever</span></button>
+      <button type="button" class="plan sel pop" data-p="Pro"><span class="flag">MOST POPULAR</span><b>Pro Atelier</b><span>For creators</span><span class="price">$16 / mo · 14-day free</span></button>
+      <button type="button" class="plan" data-p="Team"><b>Studio Team</b><span>Up to 10 seats</span><span class="price">$49 / mo · 14-day free</span></button>
+    </div>
+
+    <div class="social">
+      <button type="button" class="sbtn" onclick="goSocial('Google')"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg> Google</button>
+      <button type="button" class="sbtn" onclick="goSocial('Apple')"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-1.04 3.88-.86 1.66.28 2.9 1.36 3.73 2.73-3.43 2.07-2.86 6.61.52 7.9-.6 1.57-1.38 3.12-3.21 2.4zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg> Apple</button>
+      <button type="button" class="sbtn" onclick="goSocial('X')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg> Twitter / X</button>
+    </div>
+
+    <div class="div">or continue with email</div>
+
+    <form id="form" novalidate>
+      <div class="grid2">
+        <div class="field" id="f-first"><label>First name</label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><input id="first" placeholder="Aarav" autocomplete="given-name"/></div>
+          <div class="err">Please enter your first name</div></div>
+        <div class="field" id="f-last"><label>Last name</label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><input id="last" placeholder="Sharma" autocomplete="family-name"/></div>
+          <div class="err">Please enter your last name</div></div>
+      </div>
+
+      <div class="grid2">
+        <div class="field" id="f-user"><label>Username <em id="uStatus">available ✓</em></label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3.5"/></svg><input id="username" placeholder="aaravcreates" autocomplete="username"/></div>
+          <div class="err">Min 3 letters, no spaces</div></div>
+        <div class="field" id="f-email"><label>Email address</label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg><input id="email" type="email" placeholder="you@studio.com" autocomplete="email"/></div>
+          <div class="err">Enter a valid email address</div></div>
+      </div>
+
+      <div class="grid2">
+        <div class="field"><label>Phone <em>optional</em></label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg><input id="phone" placeholder="+91 98765 43210" autocomplete="tel"/></div></div>
+        <div class="field"><label>Country</label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.9 5.7 3.9 9S14.5 18.4 12 21c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3z"/></svg>
+          <select id="country"><option>India</option><option>United States</option><option>United Kingdom</option><option>Canada</option><option>UAE</option><option>Singapore</option><option>Australia</option><option>Germany</option><option>France</option></select></div></div>
+      </div>
+
+      <div class="grid2">
+        <div class="field"><label>Company <em>optional</em></label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><input placeholder="Maison Noir Studio"/></div></div>
+        <div class="field"><label>Role</label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          <select><option>Designer / Creative</option><option>Founder / CEO</option><option>Product Manager</option><option>Developer</option><option>Marketer</option><option>Other</option></select></div></div>
+      </div>
+
+      <div class="grid2">
+        <div class="field" id="f-pass"><label>Password</label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><input id="pass" type="password" placeholder="Min. 8 characters" autocomplete="new-password"/><button type="button" class="eye" onclick="togglePw('pass',this)">Show</button></div>
+          <div class="strength"><div class="bar" id="b1"></div><div class="bar" id="b2"></div><div class="bar" id="b3"></div><div class="bar" id="b4"></div></div>
+          <div class="check-list"><span class="chk" id="c1">8+ chars</span><span class="chk" id="c2">Aa case</span><span class="chk" id="c3">123 number</span><span class="chk" id="c4">*# symbol</span></div>
+          <div class="err">Password must be at least 8 characters</div></div>
+        <div class="field" id="f-cpass"><label>Confirm password</label>
+          <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><input id="cpass" type="password" placeholder="Repeat password" autocomplete="new-password"/></div>
+          <div class="err">Passwords do not match</div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <div class="field" style="flex:1;margin:0"><label>Date of birth</label><div class="in"><input type="date" id="dob" style="padding-left:14px"/></div></div>
+            <div class="field" style="flex:1;margin:0"><label>Gender</label><div class="in"><select style="padding-left:14px"><option>Prefer not to say</option><option>Female</option><option>Male</option><option>Non-binary</option></select></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field"><label>How did you hear about us?</label>
+        <div class="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>
+        <select><option>Google Search</option><option>Friend / Referral</option><option>Instagram / Social</option><option>Product Hunt</option><option>Design community</option><option>Other</option></select></div></div>
+
+      <div class="terms on" id="termsBox" onclick="this.classList.toggle('on');document.getElementById('terms').checked=this.classList.contains('on')">
+        <span class="box">✓</span><input type="checkbox" id="terms" checked />
+        <p>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>, and consent to secure processing of my data for my Lumina membership.</p>
+      </div>
+
+      <label style="display:flex;gap:9px;align-items:center;font-size:12.5px;color:#6B6457;margin-bottom:14px;cursor:pointer"><input type="checkbox" checked style="accent-color:#131210;width:16px;height:16px"/> Email me atelier drops, templates & member offers <span style="color:#B4AD9E">(optional)</span></label>
+
+      <button class="cta" type="submit">Create my atelier account <span>→</span> <small id="planName">· Pro trial</small></button>
+      <div class="foot"><span>🔒 256-bit SSL</span><span>· SOC2 Type II</span><span>· GDPR ready</span><span>· <a href="#" style="color:inherit">Need help?</a></span></div>
+    </form>
+
+    <div class="success" id="success">
+      <div><div class="s-circle">✓</div>
+      <h2 style="font-size:34px">Welcome to the <em>atelier</em></h2>
+      <p class="sub" id="welcomeMsg" style="margin-top:10px">Your Pro trial has started.</p>
+      <button class="cta" onclick="enterApp()" style="max-width:280px;margin:18px auto 0">Enter Lumina → Open My App</button>
+      <div style="font-size:12px;color:var(--muted);margin-top:10px">Redirecting to your app in 2s…</div></div>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+let plan='Pro';
+document.querySelectorAll('.plan').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.plan').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');
+  plan=b.dataset.p;document.getElementById('planName').textContent='· '+plan+(plan==='Personal'?' free':' trial');
+}));
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600)}
+function enterApp(){window.location.href='welcome.html'}
+function goSocial(p){toast('✓ Signed in with '+p+' — opening your app…');try{localStorage.setItem('lumina_user',JSON.stringify({first:'Guest',last:'Member',email:'guest@lumina.app',plan:plan}))}catch(e){}setTimeout(()=>window.location.href='welcome.html',900)}
+function togglePw(id,btn){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';btn.textContent=i.type==='password'?'Show':'Hide'}
+const pass=document.getElementById('pass');
+const cols=['#E8DFCE','#E0705A','#E8A13D','#8AB86A','#2F7D4A'];
+pass.addEventListener('input',()=>{
+  const v=pass.value;
+  const checks=[v.length>=8,/[a-z]/.test(v)&&/[A-Z]/.test(v),/\d/.test(v),/[^A-Za-z0-9]/.test(v)];
+  checks.forEach((c,i)=>document.getElementById('c'+(i+1)).classList.toggle('ok',c));
+  let s=checks.filter(Boolean).length;
+  ['b1','b2','b3','b4'].forEach((id,i)=>{const el=document.getElementById(id);el.style.background=i<s?(s<=1?cols[1]:s===2?cols[2]:s===3?cols[3]:cols[4]):'#E8DFCE'});
+});
+document.getElementById('username').addEventListener('input',e=>{
+  const v=e.target.value.trim();const st=document.getElementById('uStatus');
+  if(v.length<3){st.textContent='min 3 chars';st.style.color='#B42318'}else if(/\s/.test(v)){st.textContent='no spaces';st.style.color='#B42318'}
+  else{st.textContent='available ✓';st.style.color='#2F7D4A'}
+});
+const dob=document.getElementById('dob');dob.max=new Date(new Date().setFullYear(new Date().getFullYear()-13)).toISOString().split('T')[0];
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();let ok=true;
+  const check=(fid,cond)=>{document.getElementById(fid).classList.toggle('bad',!cond);if(!cond)ok=false};
+  check('f-first',document.getElementById('first').value.trim().length>1);
+  check('f-last',document.getElementById('last').value.trim().length>1);
+  check('f-user',document.getElementById('username').value.trim().length>=3 && !/\s/.test(document.getElementById('username').value));
+  check('f-email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value));
+  check('f-pass',pass.value.length>=8);
+  check('f-cpass',document.getElementById('cpass').value===pass.value && pass.value.length>=8);
+  if(!document.getElementById('terms').checked){toast('Please accept Terms to continue');return}
+  if(!ok){toast('Please review the highlighted fields');return}
+  const fn=document.getElementById('first').value.trim();
+  document.getElementById('welcomeMsg').textContent=`Lovely to meet you, ${fn}. Your ${plan} trial has started — check your inbox to verify.`;
+  document.getElementById('success').classList.add('show');
+  toast('✓ Account created — opening your app…');
+  try{localStorage.setItem('lumina_user',JSON.stringify({first:fn,last:document.getElementById('last').value.trim(),email:document.getElementById('email').value.trim(),username:document.getElementById('username').value.trim(),plan:plan}))}catch(e){}
+  setTimeout(()=>window.location.href='welcome.html',2000);
+});
+</script>
+</body>
+</html>

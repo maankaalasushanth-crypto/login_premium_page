@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#E6EBF5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080F24" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<title>My App — Welcome</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#E6EBF5; --card:#EBF0F9; --input:#EDF1FA;
+  --text:#101828; --muted:#7A869E; --line:rgba(16,24,40,.08);
+  --blue1:#3B8CFF; --blue2:#1D4ED8; --glow:rgba(46,124,246,.45);
+  --s-dark:rgba(163,177,198,.65); --s-light:rgba(255,255,255,.95);
+}
+html[data-theme="dark"]{
+  --bg:#080F24; --card:#101A35; --input:#142043;
+  --text:#EAF0FF; --muted:#8B98B8; --line:rgba(255,255,255,.1);
+  --s-dark:rgba(0,0,0,.6); --s-light:rgba(255,255,255,.07);
+  --glow:rgba(59,140,255,.5);
+}
+html,body{width:100%;max-width:100%;overflow-x:clip}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);min-height:100dvh;display:grid;place-items:center;
+  padding:clamp(12px,3vw,28px);padding-bottom:calc(clamp(12px,3vw,28px) + env(safe-area-inset-bottom));
+  background:var(--bg);transition:.4s;position:relative;touch-action:manipulation}
+.blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0}
+.b1{width:clamp(240px,55vmin,420px);height:clamp(240px,55vmin,420px);left:clamp(-140px,-12vw,-40px);top:clamp(-140px,-12vw,-40px);background:linear-gradient(135deg,#DCE6FB,#B9CFF7)}
+html[data-theme="dark"] .b1{background:linear-gradient(135deg,#16224A,#0B1330)}
+.b1::after{content:'';position:absolute;inset:7%;border-radius:50%;border:3px solid rgba(59,140,255,.35)}
+.b2{width:clamp(90px,20vmin,160px);height:clamp(90px,20vmin,160px);right:-30px;top:30%;background:linear-gradient(135deg,#E7EEFD,#C3D5F8)}
+html[data-theme="dark"] .b2{background:linear-gradient(135deg,#1A2750,#0D1533)}
+.b3{width:clamp(180px,42vmin,320px);height:clamp(180px,42vmin,320px);left:clamp(-110px,-10vw,-30px);bottom:clamp(-120px,-10vw,-30px);background:linear-gradient(135deg,#D9E4FA,#B9CFF7)}
+html[data-theme="dark"] .b3{background:linear-gradient(135deg,#141F45,#0A1128)}
+.shell{position:relative;width:100%;max-width:520px;z-index:2;margin-block:auto;animation:up .7s cubic-bezier(.22,1,.36,1)}
+@keyframes up{from{opacity:0;transform:translateY(22px);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+body{opacity:0;animation:pageIn .7s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes pageIn{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
+body.leaving{animation:pageOut .5s cubic-bezier(.32,.72,.24,1) forwards}
+@keyframes pageOut{to{opacity:0;transform:scale(.97);filter:blur(6px)}}
+.top{animation:drop .65s .05s cubic-bezier(.22,1,.36,1) backwards}
+.hero{animation:drop .65s .15s cubic-bezier(.22,1,.36,1) backwards}
+@keyframes drop{from{opacity:0;transform:translateY(20px) scale(.985)}to{opacity:1;transform:none}}
+.logo{animation:floaty 4.5s 1s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.veil{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:0;background:var(--bg);backdrop-filter:blur(0px);transition:opacity .5s cubic-bezier(.22,1,.36,1),backdrop-filter .5s}
+.veil.show{opacity:1;pointer-events:all;backdrop-filter:blur(10px)}
+.logout{position:relative;transition:transform .25s cubic-bezier(.22,1,.36,1)}
+.logout:active{transform:scale(.95)}
+.logout.loading{pointer-events:none;opacity:.85}
+.logout.loading::after{content:'';width:16px;height:16px;border-radius:50%;border:2.5px solid var(--muted);border-top-color:var(--blue1);animation:spin .7s linear infinite;display:inline-block;vertical-align:-3px;margin-left:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bye{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(10,18,40,.45);backdrop-filter:blur(8px);opacity:0;transition:opacity .35s}
+.bye.show{display:flex;opacity:1;animation:fadeBlur .4s cubic-bezier(.22,1,.36,1)}
+@keyframes fadeBlur{from{opacity:0;backdrop-filter:blur(0px)}to{opacity:1}}
+.byecard{width:100%;max-width:300px;text-align:center;background:var(--card);border-radius:26px;padding:30px 24px;animation:pop .55s cubic-bezier(.22,1.4,.36,1)}
+@keyframes pop{from{opacity:0;transform:scale(.82) translateY(16px)}60%{transform:scale(1.03) translateY(-2px)}to{opacity:1;transform:none}}
+.byecheck{width:72px;height:72px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;font-size:30px;background:linear-gradient(135deg,#4A9DFF,#1D4ED8);box-shadow:0 12px 26px var(--glow);animation:wave 1.2s ease infinite}
+@keyframes wave{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg) scale(1.05)}}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.mini{width:52px;height:52px;min-width:52px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,#F4F7FE,#DDE6F8);box-shadow:6px 6px 14px var(--s-dark),-6px -6px 14px var(--s-light)}
+html[data-theme="dark"] .mini{background:linear-gradient(145deg,#182450,#0B1330)}
+.who{min-width:0;flex:1 1 140px}
+.top b{font-size:15px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top span{font-size:10px;letter-spacing:.2em;color:var(--muted);font-weight:700}
+.actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+.theme{width:48px;height:48px;min-width:48px;border-radius:15px;border:0;cursor:pointer;background:var(--card);color:var(--text);font-size:19px;box-shadow:6px 6px 14px var(--s-dark),-6px -6px 14px var(--s-light)}
+.theme:focus-visible,.logout:focus-visible,.btn-p:focus-visible,.btn-g:focus-visible{outline:3px solid rgba(59,140,255,.6);outline-offset:2px}
+.logout{background:var(--card);border:0;border-radius:15px;padding:13px 16px;min-height:48px;font-weight:700;font-size:13px;color:var(--text);cursor:pointer;box-shadow:6px 6px 14px var(--s-dark),-6px -6px 14px var(--s-light);white-space:nowrap}
+.hero{background:var(--card);border-radius:clamp(22px,4vw,32px);padding:clamp(22px,5vw,48px);text-align:center;box-shadow:14px 14px 34px var(--s-dark),-14px -14px 34px var(--s-light),inset 1px 1px 2px var(--s-light);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:8%;right:8%;height:50%;border-radius:0 0 100px 100px;background:linear-gradient(180deg,rgba(255,255,255,.55),transparent);pointer-events:none}
+html[data-theme="dark"] .hero::before{background:linear-gradient(180deg,rgba(255,255,255,.08),transparent)}
+.logo{width:clamp(88px,22vw,120px);height:clamp(88px,22vw,120px);margin:0 auto;border-radius:clamp(26px,6vw,36px);display:grid;place-items:center;background:linear-gradient(145deg,#F4F7FE,#DDE6F8);box-shadow:10px 10px 26px var(--s-dark),-10px -10px 26px var(--s-light)}
+html[data-theme="dark"] .logo{background:linear-gradient(145deg,#182450,#0B1330)}
+.logo svg{width:55%;height:55%}
+.eyebrow{margin-top:14px;font-size:clamp(9px,2.6vw,11px);letter-spacing:.24em;color:var(--muted);font-weight:700;line-height:1.8}
+h1{font-size:clamp(34px,9vw,68px);font-weight:800;letter-spacing:-.04em;line-height:.95;margin:10px 0;text-wrap:balance}
+h1 span{background:linear-gradient(135deg,var(--blue1),var(--blue2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:clamp(13px,3.6vw,14.5px);max-width:520px;margin:0 auto;line-height:1.65}
+.ctarow{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.btn-p{position:relative;border:0;cursor:pointer;border-radius:100px;padding:15px 28px;min-height:52px;font-size:15px;font-weight:700;color:#fff;background:linear-gradient(135deg,#4A9DFF,#1D4ED8);box-shadow:0 14px 28px var(--glow),inset 2px 2px 4px rgba(255,255,255,.5);overflow:hidden;flex:1 1 200px;max-width:320px}
+.btn-p::before{content:'';position:absolute;top:2px;left:12px;right:12px;height:45%;border-radius:100px;background:linear-gradient(180deg,rgba(255,255,255,.5),transparent)}
+.btn-g{border:0;cursor:pointer;border-radius:100px;padding:15px 26px;min-height:52px;font-size:14px;font-weight:700;color:var(--text);background:var(--card);box-shadow:8px 8px 18px var(--s-dark),-8px -8px 18px var(--s-light);flex:1 1 160px;max-width:260px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,2.5vw,14px);margin-top:14px}
+.card{background:var(--card);border-radius:22px;padding:clamp(14px,3.5vw,20px);text-align:center;box-shadow:10px 10px 24px var(--s-dark),-10px -10px 24px var(--s-light)}
+.card .ico{width:46px;height:46px;margin:0 auto 10px;border-radius:15px;display:grid;place-items:center;font-size:20px;background:var(--input);box-shadow:inset 4px 4px 10px var(--s-dark),inset -4px -4px 10px var(--s-light)}
+.card b{font-size:clamp(18px,5vw,22px);display:block}
+.card small{color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.06em;word-break:break-word}
+.foot{text-align:center;margin-top:16px;color:var(--muted);font-size:clamp(9px,2.6vw,11px);letter-spacing:.24em;font-weight:600;line-height:2}
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,140%);background:#101828;color:#fff;padding:13px 22px;border-radius:100px;font-size:13.5px;font-weight:600;transition:transform .4s;z-index:99;max-width:min(92vw,480px);text-align:center}
+html[data-theme="dark"] #toast{background:#EAF0FF;color:#0B1226}
+#toast.show{transform:translate(-50%,0)}
+
+/* Devices */
+@media(max-width:480px){
+  body{padding:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+  .top{gap:10px}
+  .actions{width:100%;margin-left:0}
+  .actions .logout{flex:1}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid .card:last-child{grid-column:1/-1}
+  .btn-p,.btn-g{flex:1 1 100%;max-width:none}
+}
+@media(max-width:340px){.grid{grid-template-columns:1fr}}
+@media(min-width:481px) and (max-width:768px){.shell{max-width:640px}}
+@media(min-width:769px) and (max-width:1024px){.shell{max-width:760px}}
+@media(min-width:1025px){.shell{max-width:880px}}
+@media(max-height:500px) and (orientation:landscape){
+  body{place-items:start center;overflow-y:auto}
+  .logo{width:72px;height:72px}
+  h1{font-size:32px}
+  .blob{opacity:.5}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<div class="shell">
+  <div class="top">
+    <div class="mini"><svg width="30" height="30" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M62 8c-2 14-10 20-18 26-9 7-16 12-16 24 0 4 1 7 3 10C32 60 38 54 46 48c9-7 18-13 20-28 0-5-1-9-4-12z" fill="#DCE8FF"/><path d="M52 26c-3 14-11 20-19 26C24 59 18 64 18 75c0 6 2 10 5 14 3-9 9-15 18-21 9-7 16-13 17-27 0-6-2-11-6-15z" fill="#3B8CFF"/><path d="M38 52c-7 5-14 10-14 20 0 9 6 16 15 19 5 2 10 1 14-2-5-4-8-9-8-15 0-8 6-13 12-18 5-4 9-8 10-15 1-6-1-12-6-16-1 8-5 13-11 18-4 3-9 6-12 9z" fill="#1238A6"/></svg></div>
+    <div class="who"><b id="helloName">My App</b><span>SIGNED IN ✓</span></div>
+    <div class="actions">
+      <button class="theme" id="themeBtn" aria-label="Toggle light and dark mode">🌙</button>
+      <button class="logout" id="logoutBtn">Log out ↩</button>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="logo"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M62 8c-2 14-10 20-18 26-9 7-16 12-16 24 0 4 1 7 3 10C32 60 38 54 46 48c9-7 18-13 20-28 0-5-1-9-4-12z" fill="#DCE8FF"/><path d="M52 26c-3 14-11 20-19 26C24 59 18 64 18 75c0 6 2 10 5 14 3-9 9-15 18-21 9-7 16-13 17-27 0-6-2-11-6-15z" fill="#3B8CFF"/><path d="M38 52c-7 5-14 10-14 20 0 9 6 16 15 19 5 2 10 1 14-2-5-4-8-9-8-15 0-8 6-13 12-18 5-4 9-8 10-15 1-6-1-12-6-16-1 8-5 13-11 18-4 3-9 6-12 9z" fill="#1238A6"/></svg></div>
+    <div class="eyebrow" id="dateNow">WELCOME • SUCCESSFULLY SIGNED IN</div>
+    <h1>WELCOME TO<br/><span>MY APP</span></h1>
+    <p id="heroSub">You are signed in.</p>
+  </section>
+</div>
+<div class="veil" id="veil"></div>
+<div class="bye" id="bye"><div class="byecard"><div class="byecheck">👋</div><h3 style="font-size:18px">Logging out…</h3><p style="font-size:13px;color:var(--muted);margin-top:6px">See you soon!</p></div></div>
+<div id="toast" role="status"></div>
+<script>
+const root=document.documentElement;
+function applyTheme(t){root.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='light'?'🌙':'☀️';try{localStorage.setItem('lumina_theme',t)}catch(e){}}
+try{applyTheme(localStorage.getItem('lumina_theme')||'light')}catch(e){applyTheme('light')}
+document.getElementById('themeBtn').onclick=()=>applyTheme(root.getAttribute('data-theme')==='light'?'dark':'light');
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600)}
+function getAccount(){try{return JSON.parse(localStorage.getItem('myapp_account')||'null')}catch(e){return null}}
+function getSession(){try{return localStorage.getItem('myapp_session')}catch(e){return null}}
+// Auth guard — must be logged in to see welcome page
+(function(){
+  const session=getSession();
+  const legacy=(()=>{try{return JSON.parse(localStorage.getItem('lumina_user')||'null')}catch(e){return null}})();
+  if(!session && !legacy){window.location.href='simple-signup.html';return}
+  const acc=getAccount();
+  const name=(acc&&acc.name)||(legacy&&(legacy.first+(legacy.last?' '+legacy.last:'')))||'Player';
+  const email=(acc&&acc.email)||(legacy&&legacy.email)||'';
+  document.getElementById('helloName').textContent='Hi, '+name.split(' ')[0]+' 👋';
+  document.getElementById('heroSub').textContent=`Hi ${name.split(' ')[0]}, you are logged in${email?' as '+email:''}. Welcome to My App.`;
+})();
+document.getElementById('dateNow').textContent='WELCOME • '+new Date().toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'}).toUpperCase();
+document.getElementById('logoutBtn').onclick=(e)=>{if(window._out)return;window._out=true;const btn=e.currentTarget;btn.classList.add('loading');document.getElementById('bye').classList.add('show');toast('Logging out…');try{localStorage.removeItem('myapp_session')}catch(err){}setTimeout(()=>document.getElementById('veil').classList.add('show'),550);setTimeout(()=>document.body.classList.add('leaving'),600);setTimeout(()=>{window.location.href='simple-signup.html?out=1'},1150)};
+setTimeout(()=>toast('✓ Logged in — welcome to My App'),650);
+</script>
+</body>
+</html>
