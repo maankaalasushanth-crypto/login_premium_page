@@ -484,10 +484,19 @@ document.getElementById('form').addEventListener('submit',e=>{
     toast(inputIsEmail?'Wrong email — please try again':'Wrong username — please try again');
     return;
   }
-  if(pass!==String(acc.pass||'').trim()){
-    setErr('f-pass','Wrong password — please try again');
-    toast('Wrong password — please try again');
-    return;
+  const savedPass=String(acc.pass||'').trim();
+  if(pass!==savedPass){
+    // One-time self-heal: passwords saved before the mobile-keyboard fix may
+    // carry an auto-capital (e.g. "Sushanth" vs "sushanth"). If the only
+    // difference is letter casing, accept it and repair the stored value.
+    if(pass.length>=8 && pass.toLowerCase()===savedPass.toLowerCase()){
+      acc.pass=pass;
+      try{localStorage.setItem('myapp_account',JSON.stringify(acc))}catch(e){}
+    }else{
+      setErr('f-pass','Wrong password — please try again');
+      toast('Wrong password — please try again');
+      return;
+    }
   }
   saveSession(acc.email);saveDisplay(acc.name,acc.email);
   smoothLogin('Login successful','Welcome back, '+acc.name.split(' ')[0]+' — opening My App…');
