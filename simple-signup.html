@@ -25,10 +25,10 @@ html[data-theme="dark"]{
   --glow:rgba(59,140,255,.5);
 }
 html{scrollbar-gutter:stable}
-html,body{width:100%;max-width:100%;overflow-x:clip}
+html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip}
 body{
   font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);
-  min-height:100dvh;display:grid;place-items:center;
+  min-height:100vh;min-height:100dvh;display:grid;place-items:center;
   padding:clamp(12px,3vw,28px);padding-bottom:calc(clamp(12px,3vw,28px) + env(safe-area-inset-bottom));
   background:var(--bg);transition:background .4s,color .4s;position:relative;
   touch-action:manipulation;
@@ -210,6 +210,7 @@ body.leaving .wrap{animation:pageOut .5s cubic-bezier(.32,.72,.24,1) forwards}
 /* Reduced motion */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
+  body{opacity:1!important}
 }
 </style>
 </head>

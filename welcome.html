@@ -23,8 +23,8 @@ html[data-theme="dark"]{
   --s-dark:rgba(0,0,0,.6); --s-light:rgba(255,255,255,.07);
   --glow:rgba(59,140,255,.5);
 }
-html,body{width:100%;max-width:100%;overflow-x:clip}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);min-height:100dvh;display:grid;place-items:center;
+html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);min-height:100vh;min-height:100dvh;display:grid;place-items:center;
   padding:clamp(12px,3vw,28px);padding-bottom:calc(clamp(12px,3vw,28px) + env(safe-area-inset-bottom));
   background:var(--bg);transition:.4s;position:relative;touch-action:manipulation}
 .blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0}
@@ -114,7 +114,7 @@ html[data-theme="dark"] #toast{background:#EAF0FF;color:#0B1226}
   h1{font-size:32px}
   .blob{opacity:.5}
 }
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}body{opacity:1!important}}
 </style>
 </head>
 <body>
